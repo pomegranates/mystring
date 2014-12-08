@@ -48,17 +48,19 @@ class MyString
     MyString(void);
     MyString(const char* c);
 
+    MyString(const MyString&);
+
     // =======================================================================
     //                                Destructor
     // =======================================================================
-    virtual ~MyString(void);
+    ~MyString(void);
 
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
     inline const int length();
     inline const float max_size();
-
+    inline int size(void);
     
     // =======================================================================
     //                            Accessors: setters
@@ -73,6 +75,14 @@ class MyString
     // =======================================================================
     void resize(size_t n);
     void resize(size_t n, char c);
+
+    char* c_str(void);
+
+    void clear(void);
+
+    MyString& operator= (const MyString&);
+    
+
 
     // =======================================================================
     //                             Public Attributes
@@ -93,11 +103,11 @@ MyString(void)
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };*/
-    MyString(const MyString &model)
+    /*MyString(const MyString &model)
     {
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
-    };
+    };*/
 
 
     // =======================================================================
@@ -123,10 +133,19 @@ int const MyString::length()
     return chars_length;
 }
 
+<<<<<<< HEAD
 float const MyString::max_size()
 {
     return MAX_SIZE;
 }
+=======
+    int MyString::size (void)
+    {
+        return chars_length;
+    }
+
+
+>>>>>>> dfdfef4863a9c20bd8287264a87700dcb17769bd
 // ===========================================================================
 //                              Setters' definitions
 // ===========================================================================

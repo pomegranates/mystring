@@ -10,7 +10,9 @@
 // ===========================================================================
 //                                   Libraries
 // ===========================================================================
-
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 
 // ===========================================================================
@@ -56,6 +58,16 @@ MyString::MyString(const char* c)
 	//We copy the c_string in our object
 	memcpy(chars,c,mem_length);
 }
+
+MyString::MyString (const MyString& str)
+{
+	mem_length = str.mem_length;
+	chars_length = str.chars_length;
+	chars = new char [mem_length];
+	memcpy(chars, str.chars, mem_length*sizeof(*chars));
+
+}
+
 
 // ===========================================================================
 //                                  Destructor
@@ -152,6 +164,36 @@ void MyString::resize(size_t n, char c)
 
 	mem_length= (int) n;
 }
+
+char* MyString::c_str (void)
+{
+
+	char* output = new char [1+chars_length];
+	int i;
+	for (i=0 ; i<chars_length ; i++)
+	{
+		output[i] = chars[i];
+	}
+	output[chars_length] = '\0';
+	return output;
+}
+
+
+void MyString::clear (void)
+{
+	delete(chars);
+	mem_length = 0;
+	chars_length = 0;
+	chars = new char [0];
+}
+
+
+MyString& MyString::operator= (const MyString& model)
+{
+	MyString* output = new MyString(model);
+	return *output;
+}
+
 
 // ===========================================================================
 //                                Protected Methods
