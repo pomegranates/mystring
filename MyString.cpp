@@ -16,6 +16,7 @@
 // ===========================================================================
 //                                 Project Files
 // ===========================================================================
+#include <cstring>
 #include "MyString.h"
 
 
@@ -34,15 +35,31 @@
 // ===========================================================================
 //                                  Constructors
 // ===========================================================================
-
 MyString::MyString(void)
 {
+}
+
+MyString::MyString(const char* c)
+{
+	chars_length = 0;
+	int i;
+
+	//We define the length of the string
+	for(i = 0 ; chars[i] != '\0' ; i++)
+	{
+		chars_length++;
+	}	
+
+	mem_length = chars_length;
+	chars = new char [mem_length];
+
+	//We copy the c_string in our object
+	memcpy(chars,c,mem_length);
 }
 
 // ===========================================================================
 //                                  Destructor
 // ===========================================================================
-
 MyString::~MyString(void)
 {
 }
