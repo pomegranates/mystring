@@ -10,7 +10,9 @@
 // ===========================================================================
 //                                   Libraries
 // ===========================================================================
-
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 
 // ===========================================================================
@@ -39,6 +41,17 @@ MyString::MyString(void)
 {
 }
 
+
+MyString::MyString (const MyString& str)
+{
+	mem_length = str.mem_length;
+	chars_length = str.chars_length;
+	chars = new char [mem_length];
+	memcpy(chars, str.chars, mem_length*sizeof(*chars));
+
+}
+
+
 // ===========================================================================
 //                                  Destructor
 // ===========================================================================
@@ -50,6 +63,20 @@ MyString::~MyString(void)
 // ===========================================================================
 //                                 Public Methods
 // ===========================================================================
+
+char* MyString::c_str (void)
+{
+
+	char* output = new char [1+chars_length];
+	int i;
+	for (i=0;i<chars_length;i++)
+	{
+		output[i] = chars[i];
+	}
+	output[chars_length] = '\0';
+	return output;
+}
+
 
 // ===========================================================================
 //                                Protected Methods

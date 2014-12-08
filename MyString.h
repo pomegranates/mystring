@@ -47,10 +47,12 @@ class MyString
     // =======================================================================
     MyString(void);
 
+    MyString(const MyString&);
+
     // =======================================================================
     //                                Destructor
     // =======================================================================
-    virtual ~MyString(void);
+    ~MyString(void);
 
     // =======================================================================
     //                            Accessors: getters
@@ -67,6 +69,10 @@ class MyString
     // =======================================================================
     //                              Public Methods
     // =======================================================================
+
+    char* c_str(void);
+    
+
 
     // =======================================================================
     //                             Public Attributes
@@ -87,11 +93,11 @@ MyString(void)
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };*/
-    MyString(const MyString &model)
+    /*MyString(const MyString &model)
     {
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
-    };
+    };*/
 
 
     // =======================================================================
@@ -102,7 +108,7 @@ MyString(void)
     //                             Protected Attributes
     // =======================================================================
     const float MAX_SIZE = 100;
-    int length;
+    int chars_length;
     int mem_length;
     char* chars;
 
