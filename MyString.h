@@ -73,6 +73,10 @@ class MyString
     // =======================================================================
 
     char* c_str(void);
+
+    void clear(void);
+
+    MyString& operator= (const MyString&);
     
 
 
@@ -109,7 +113,7 @@ MyString(void)
     // =======================================================================
     //                             Protected Attributes
     // =======================================================================
-    const float MAX_SIZE = 100;
+    static const float MAX_SIZE = 100;
     int chars_length;
     int mem_length;
     char* chars;

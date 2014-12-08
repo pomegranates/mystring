@@ -69,12 +69,28 @@ char* MyString::c_str (void)
 
 	char* output = new char [1+chars_length];
 	int i;
-	for (i=0;i<chars_length;i++)
+	for (i=0 ; i<chars_length ; i++)
 	{
 		output[i] = chars[i];
 	}
 	output[chars_length] = '\0';
 	return output;
+}
+
+
+void MyString::clear (void)
+{
+	delete(chars);
+	mem_length = 0;
+	chars_length = 0;
+	chars = new char [0];
+}
+
+
+MyString& MyString::operator= (const MyString& model)
+{
+	MyString* output = new MyString(model);
+	return *output;
 }
 
 
