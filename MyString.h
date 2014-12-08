@@ -133,19 +133,18 @@ int const MyString::length()
     return chars_length;
 }
 
-<<<<<<< HEAD
+
 float const MyString::max_size()
 {
     return MAX_SIZE;
 }
-=======
-    int MyString::size (void)
-    {
-        return chars_length;
-    }
+
+int MyString::size (void)
+{
+   return chars_length;
+}
 
 
->>>>>>> dfdfef4863a9c20bd8287264a87700dcb17769bd
 // ===========================================================================
 //                              Setters' definitions
 // ===========================================================================
