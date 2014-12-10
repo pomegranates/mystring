@@ -61,7 +61,10 @@ class MyString
     inline int length() const;
     inline float max_size() const;
     inline int size(void) const;
-    
+    inline char& at(size_t pos);
+    // "read-only" version of "at" used if the string is const-qualified
+    inline const char& at (size_t pos) const;
+
     // =======================================================================
     //                            Accessors: setters
     // =======================================================================
@@ -144,6 +147,27 @@ int MyString::size (void) const
    return chars_length;
 }
 
+char& MyString::at(size_t pos)
+{
+    if(pos<chars_length)
+        return chars[pos];
+    else
+    {
+        char c = '\0';
+        return c;
+    }
+}
+
+const char& MyString::at (size_t pos) const
+{
+    if(pos<chars_length)
+        return chars[pos];
+    else
+    {
+        char c = '\0';
+        return c;
+    }
+}
 
 // ===========================================================================
 //                              Setters' definitions
