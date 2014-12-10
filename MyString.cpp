@@ -168,7 +168,6 @@ void MyString::resize(size_t n, char c)
 
 char* MyString::c_str (void)
 {
-
 	char* output = new char [1+chars_length];
 	int i;
 	for (i=0 ; i<chars_length ; i++)
@@ -232,6 +231,31 @@ MyString MyString::operator+ (char* right)
 	return *resString;
 }
 
+MyString MyString::operator+ (const MyString& rightString)
+{
+	int nbchars = this->chars_length + rightString.chars_length;
+	char* newChars = new char[nbchars+1];
+	int i,j;
+
+	// Copy the characters of the first string
+	for(i = 0; i < this->chars_length; i++)
+	{
+		newChars[i] = this->chars[i];
+		j = i;
+	}
+
+	// Copy the characters of the second string
+	for(i = 0; i < rightString.chars_length; i++)
+	{
+		newChars[j+i+1] = rightString.chars[i];
+	}
+
+	// Null character to format this string as a c_string
+	newChars[nbchars] = '\0';
+
+	// Return a MyString created from the generated c_string
+	return *(new MyString(newChars));
+}
 
 
 // ===========================================================================

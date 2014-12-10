@@ -91,6 +91,8 @@ class MyString
     
     MyString operator+ (char*);
 
+    MyString operator+ (const MyString&);
+
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
