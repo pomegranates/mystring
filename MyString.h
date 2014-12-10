@@ -58,9 +58,9 @@ class MyString
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
-    inline const int length();
-    inline const float max_size();
-    inline int size(void);
+    inline int length() const;
+    inline float max_size() const;
+    inline int size(void) const;
     
     // =======================================================================
     //                            Accessors: setters
@@ -130,18 +130,18 @@ MyString(void)
 // ===========================================================================
 //                              Getters' definitions
 // ===========================================================================
-int const MyString::length()
+int MyString::length() const 
 {
     return chars_length;
 }
 
 
-float const MyString::max_size()
+float MyString::max_size() const
 {
     return MAX_SIZE;
 }
 
-int MyString::size (void)
+int MyString::size (void) const
 {
    return chars_length;
 }

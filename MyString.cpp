@@ -46,7 +46,7 @@ MyString::MyString(const char* c)
 	int i;
 
 	//We define the length of the string
-	for(i = 0 ; chars[i] != '\0' ; i++)
+	for(i = 0 ; c[i] != '\0' ; i++)
 	{
 		chars_length++;
 	}	
@@ -116,6 +116,7 @@ void MyString::resize(size_t n)
 	 	//Replace the object characters by the new ones
 	 	delete [] chars;
 	 	chars = temp_chars;
+	 	chars_length = n;
 	}
 
 	mem_length= (int) n;
@@ -131,7 +132,7 @@ void MyString::resize(size_t n, char c)
 	 	for(i=0;i<n;i++)
 	 	{
 	 		//Copy existing characters
-	 		if(i<mem_length)
+	 		if(i<chars_length)
 	 		{
 				temp_chars[i]=chars[i];
 	 		}
@@ -161,6 +162,7 @@ void MyString::resize(size_t n, char c)
 	 	chars = temp_chars;
 	}
 
+	chars_length = n;
 	mem_length= (int) n;
 }
 
