@@ -189,10 +189,32 @@ void MyString::clear (void)
 }
 
 
+
+// operator =
 MyString& MyString::operator= (const MyString& model)
 {
 	MyString* output = new MyString(model);
 	return *output;
+}
+
+
+
+// operator + : appending a char to an existing string
+MyString MyString::operator+ (char right)
+{
+    // length of the resulting string
+    int nbchars = mem_length +1;
+
+    // we reserve the memory for the resulting string
+    char* newstring = new char [nbchars];
+
+    // then the new data is added
+    memcpy (newstring, chars, nbchars*sizeof(*chars));
+    newstring[nbchars-1] = right;
+
+    // finally the resulting string is created and returned
+    MyString* output = new MyString(newstring);
+    return *output;
 }
 
 
