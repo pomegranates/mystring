@@ -203,14 +203,15 @@ MyString& MyString::operator= (const MyString& model)
 MyString MyString::operator+ (char right)
 {
     // length of the resulting string
-    int nbchars = mem_length +1;
+    int nbchars = chars_length +2;
 
     // we reserve the memory for the resulting string
     char* newstring = new char [nbchars];
 
     // then the new data is added
-    memcpy (newstring, chars, nbchars*sizeof(*chars));
-    newstring[nbchars-1] = right;
+    memcpy (newstring, chars, chars_length*sizeof(*chars));
+    newstring[nbchars-2] = right;
+    newstring[nbchars-1] = '\0';
 
     // finally the resulting string is created and returned
     MyString* output = new MyString(newstring);

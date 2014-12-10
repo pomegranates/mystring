@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 
 	char* c_s1 = "Popopo";
 	MyString* s1 = new MyString(c_s1);
-	MyString* s2 = new MyString("Pidipip");
+	MyString* s2 = new MyString("Pomegranates");
 	MyString* s3 = new MyString(*s2);
 
 	printf("s1 length: %d !\n", s1->length());
@@ -64,7 +64,22 @@ int main(int argc, char* argv[])
 	printf("s1 length:%d !\n", s1->length());
 	printf("s1[0-3] : %c %c %c %c\n", (s1->c_str())[0], (s1->c_str())[1], (s1->c_str())[2], (s1->c_str())[3]);
 	printf("s1[4-7] : %c %c %c %c\n", s1->at(4), s1->at(5), s1->at(6), s1->at(7));
-	
+
+
+    /*MyString* s4 = new MyString(c_s1);
+    char charx = 'x';
+    *s4 = (*s1) + charx;*/
+	MyString* s4 = new MyString((*s1) + 'x');
+	printf("s4 length:%d !\n", s4->length());
+
+	printf("This is s4 : ");
+    int i;
+    for (i=0 ; i<s4->length(); i++)
+    {
+    	printf("%c", s4->at(i));
+    }
+    printf("\n");
+
  	return 0;
 }
 
