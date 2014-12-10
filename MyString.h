@@ -85,9 +85,11 @@ class MyString
 
     MyString& operator= (const MyString&);
 
+    MyString& operator= (char);
+
     MyString operator+ (char);
     
-
+    MyString operator+ (char*);
 
     // =======================================================================
     //                             Public Attributes

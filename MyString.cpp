@@ -197,25 +197,41 @@ MyString& MyString::operator= (const MyString& model)
 	return *output;
 }
 
+MyString& MyString::operator= (char c)
+{
+	const char* temp_chars = c+"\0";
+	//Here the number of null character at the end of the c_string should be AT LEAST ONE
+	//(but could be more) to create an object MyString using the c_string-based constructor
+	return *(new MyString(temp_chars));
+}
 
 
 // operator + : appending a char to an existing string
 MyString MyString::operator+ (char right)
 {
     // length of the resulting string
-    int nbchars = mem_length +1;
+    int nbchars = chars_length +2;
 
     // we reserve the memory for the resulting string
     char* newstring = new char [nbchars];
 
     // then the new data is added
-    memcpy (newstring, chars, nbchars*sizeof(*chars));
-    newstring[nbchars-1] = right;
+    memcpy (newstring, chars, chars_length*sizeof(*chars));
+    newstring[nbchars-2] = right;
+    newstring[nbchars-1] = '\0';
 
     // finally the resulting string is created and returned
     MyString* output = new MyString(newstring);
     return *output;
 }
+
+MyString MyString::operator+ (char* right)
+{
+	MyString* rightString = new MyString(right);
+	MyString* resString = new MyString(*(this) + *(rightString));
+	return *resString;
+}
+
 
 
 // ===========================================================================
