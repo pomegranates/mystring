@@ -51,6 +51,9 @@ MyString::MyString(const char* c)
 		chars_length++;
 	}	
 
+	if(chars_length > MAX_SIZE)
+		chars_length = MAX_SIZE;
+
 	mem_length = chars_length;
 	chars = new char [mem_length];
 
@@ -80,6 +83,9 @@ MyString::~MyString(void)
 // ===========================================================================
 void MyString::resize(size_t n)
 {
+	if(n > MAX_SIZE)
+		n = MAX_SIZE;
+
 	//First case, if we want to broaden the string
 	if(n > mem_length)
 	{
@@ -124,6 +130,9 @@ void MyString::resize(size_t n)
 
 void MyString::resize(size_t n, char c)
 {
+	if(n > MAX_SIZE)
+		n = MAX_SIZE;
+
 	//First case, if we want to broaden the string
 	if(n > mem_length)
 	{

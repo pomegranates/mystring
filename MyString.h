@@ -126,7 +126,7 @@ MyString(void)
     // =======================================================================
     //                             Protected Attributes
     // =======================================================================
-    static const float MAX_SIZE = 100;
+    static const float MAX_SIZE = 20;
     int chars_length;
     int mem_length;
     char* chars;
