@@ -18,7 +18,6 @@
 // ===========================================================================
 //                                 Project Files
 // ===========================================================================
-#include <cstring>
 #include "MyString.h"
 
 
@@ -63,7 +62,7 @@ MyString::MyString (const MyString& str)
 	mem_length = str.mem_length;
 	chars_length = str.chars_length;
 	chars = new char [mem_length];
-	memcpy(chars, str.chars, mem_length*sizeof(*chars));
+	memcpy(chars, str.chars, mem_length*sizeof(char));
 
 }
 
@@ -166,7 +165,7 @@ void MyString::resize(size_t n, char c)
 	mem_length= (int) n;
 }
 
-char* MyString::c_str (void)
+const char* MyString::c_str (void) const
 {
 	char* output = new char [1+chars_length];
 	int i;
@@ -192,16 +191,29 @@ void MyString::clear (void)
 // operator =
 MyString& MyString::operator= (const MyString& model)
 {
-	MyString* output = new MyString(model);
-	return *output;
+	//MyString* output = new MyString(model);
+	//char* output = new char[model.mem_length];
+	//chars = new char [mem_length];
+	memcpy(this->chars, model.chars, mem_length*sizeof(char));
+	//printf("%c\n",output[0]);
+	//MyString* result = new MyString(output);
+	printf("%c\n",this->chars[0]);
+	//printf("%c\n",output->chars[0]);
+	return *this;
 }
+
+
 
 MyString& MyString::operator= (char c)
 {
-	const char* temp_chars = c+"\0";
+	/*const char* temp_chars = c+"\0";
 	//Here the number of null character at the end of the c_string should be AT LEAST ONE
 	//(but could be more) to create an object MyString using the c_string-based constructor
-	return *(new MyString(temp_chars));
+	return *(new MyString(temp_chars));*/
+	this->mem_length = 1;
+    this->chars_length = 1;
+	this->chars[0] = c;
+	return *this;
 }
 
 
@@ -224,12 +236,16 @@ MyString MyString::operator+ (char right)
     return *output;
 }
 
+
+
 MyString MyString::operator+ (char* right)
 {
 	MyString* rightString = new MyString(right);
 	MyString* resString = new MyString(*(this) + *(rightString));
 	return *resString;
 }
+
+
 
 MyString MyString::operator+ (const MyString& rightString)
 {
