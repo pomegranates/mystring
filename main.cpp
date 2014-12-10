@@ -123,6 +123,11 @@ int main(int argc, char* argv[])
     }
     printf("\n");
 
+    delete s1;
+    delete s2;
+    delete s4;
+    delete s5;
+
  	return 0;
 }
 

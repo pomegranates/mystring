@@ -180,7 +180,7 @@ const char* MyString::c_str (void) const
 
 void MyString::clear (void)
 {
-	delete(chars);
+	delete chars;
 	mem_length = 0;
 	chars_length = 0;
 	chars = new char [0];
