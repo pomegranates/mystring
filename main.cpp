@@ -284,6 +284,7 @@ int main(int argc, char* argv[])
     }
     printf("\n\n");
 
+
     *s4 = *s4 + "Grenade";
     printf("s4 size: %d\ns4 content: ",s4->size());
     for(i = 0; i < s4->length(); i++)
@@ -291,6 +292,24 @@ int main(int argc, char* argv[])
         printf("%c", (s4->c_str())[i]);
     }
     printf("\n\n");
+
+
+    // test with a const MyString
+    const MyString s5 = *s4;
+    printf("s5 size: %d\ns5 content: ",s5.size());
+    for(i = 0; i < s5.length(); i++)
+    {
+        printf("%c", (s5.c_str())[i]);
+    }
+    printf("\n\n");
+    printf("s5 length: %d !\nmax s5 size: %f\n", s5.length(), s5.max_size());
+    printf("s5 size: %d\ns5 content: ",s5.size());
+    for(i = 0; i < s5.size(); i++)
+    {
+        printf("%c", s5.at(i));
+    }
+    printf("\n\n"); 
+    //s5 = "Pomegranates";
 
 
     //old test
