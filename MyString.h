@@ -108,17 +108,6 @@ class MyString
     // =======================================================================
     //                            Forbidden Constructors
     // =======================================================================
-    /*MyString
-MyString(void)
-    {
-      printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
-      exit(EXIT_FAILURE);
-    };*/
-    /*MyString(const MyString &model)
-    {
-      printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
-      exit(EXIT_FAILURE);
-    };*/
 
 
     // =======================================================================
@@ -189,52 +178,6 @@ const char& MyString::at (size_t pos) const
 // ===========================================================================
 //                             Operators' definitions
 // ===========================================================================
-
-
-/*
-
-// if we want to append a char to an existing string
-// e.g. aString + 'a'
-MyString MyString::operator+ (const MyString& left, char right)
-{
-    // length of the resulting string
-    int nbchars = mem_length +1;
-
-    // we reserve the memory for the resulting string
-    char* newstring = new char [nbchars];
-
-    // then the new data is added
-    memcpy (newstring, left.chars, nbchars*sizeof(*chars));
-    newstring[nbchars-1] = right;
-
-    // finally the resulting string is created and returned
-    MyString* output = new MyString(newstring);
-    return *output;
-}
-
-
-
-// if we want to append an existing string to a char (the other way around)
-//e.g. 'a' + aString
-MyString MyString::operator+ (char left, const MyString& right)
-{
-    // length of the resulting string
-    int nbchars = mem_length +1;
-
-    // we reserve the memory for the resulting string
-    char* newstring = new char [nbchars];
-
-    // then the new data is added
-    newstring[0] = left;
-    memcpy (newstring[1], right.chars, nbchars*sizeof(*chars));
-
-    // finally the resulting string is created and returned
-    MyString* output = new MyString(newstring);
-    return *output;
-}
-
-
-*/
 
 // ===========================================================================
 //                          Inline functions' definition
