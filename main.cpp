@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
     printf("\n\n");
 
 
-    // =, +
+    // = between 2 MyString
     *s2 = *s3;
     printf("s2 size: %d\ns2 content: ",s2->size());
     for(i = 0; i < s2->length(); i++)
@@ -128,6 +128,169 @@ int main(int argc, char* argv[])
     }
     printf("\n\n");
 
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+        printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    *s3 = "Pomegranates";
+    printf("s2 size: %d\ns2 content: ",s2->size());
+    for(i = 0; i < s2->length(); i++)
+    {
+        printf("%c", (s2->c_str())[i]);
+    }
+    printf("\n\n");
+
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+        printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    s1 = *s3;
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+        printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+        printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    s1 = "Popopo";
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+        printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+        printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    *s2 = s1;
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+        printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+    printf("s2 size: %d\ns2 content: ",s2->size());
+    for(i = 0; i < s2->length(); i++)
+    {
+        printf("%c", (s2->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    // = between a MyString and a char
+    s1 = 'x';
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+        printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+
+    *s4 = 'x';
+    printf("s4 size: %d\ns4 content: ",s4->size());
+    for(i = 0; i < s4->length(); i++)
+    {
+        printf("%c", (s4->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    // + between a MyString and a char
+    s1 = s1 + 'x';
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+        printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+
+    *s4 = *s4 + 'x';
+    printf("s4 size: %d\ns4 content: ",s4->size());
+    for(i = 0; i < s4->length(); i++)
+    {
+        printf("%c", (s4->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    // + between 2 MyString
+    s1 = s1 + *s3;
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+        printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+        printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+
+    *s3 = s1 + *s4;
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+        printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+    printf("s4 size: %d\ns4 content: ",s4->size());
+    for(i = 0; i < s4->length(); i++)
+    {
+        printf("%c", (s4->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    // MAX_SIZE
+    *s3 = *s3 + *s2;
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+        printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+    // + between a MyString and a char*
+    s1.clear();
+    s1 = 'x';
+    s1 = s1 + "Pomegranates";
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+        printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+
+    *s4 = *s4 + "Grenade";
+    printf("s4 size: %d\ns4 content: ",s4->size());
+    for(i = 0; i < s4->length(); i++)
+    {
+        printf("%c", (s4->c_str())[i]);
+    }
+    printf("\n\n");
 
 
     //old test
@@ -212,14 +375,13 @@ int main(int argc, char* argv[])
     {
     	printf("%c", s5->at(i));
     }
-    printf("\n");
+    printf("\n");*/
 
-    delete s1;
     delete s2;
+    delete s3;
     delete s4;
-    delete s5;
 
- 	return 0;*/
+ 	return 0;
 }
 
 
