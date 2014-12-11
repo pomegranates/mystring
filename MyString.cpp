@@ -207,6 +207,8 @@ MyString& MyString::operator= (const MyString& model)
 	//char* output = new char[model.mem_length];
 	//chars = new char [mem_length];
 	memcpy(this->chars, model.chars, mem_length*sizeof(char));
+	this->chars_length = model.chars_length;
+	this->mem_length = model.mem_length;
 	//printf("%c\n",output[0]);
 	//MyString* result = new MyString(output);
 	printf("%c\n",this->chars[0]);

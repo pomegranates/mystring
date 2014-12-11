@@ -118,6 +118,18 @@ int main(int argc, char* argv[])
     }
     printf("\n\n");
 
+
+    // =, +
+    *s2 = *s3;
+    printf("s2 size: %d\ns2 content: ",s2->size());
+    for(i = 0; i < s2->length(); i++)
+    {
+        printf("%c", (s2->c_str())[i]);
+    }
+    printf("\n\n");
+
+
+
     //old test
 	/*char* c_s1 = "Popopo";
 	MyString* s1 = new MyString(c_s1);               // calling constructor from a char*
