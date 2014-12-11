@@ -58,12 +58,14 @@ class MyString
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
-    inline int length() const;
-    inline float max_size() const;
+    inline int length(void) const;
+    inline int capacity(void) const;
+    inline float max_size(void) const;
     inline int size(void) const;
     inline char& at(size_t pos);
     // "read-only" version of "at" used if the string is const-qualified
     inline const char& at (size_t pos) const;
+
 
     // =======================================================================
     //                            Accessors: setters
@@ -137,9 +139,14 @@ MyString(void)
 // ===========================================================================
 //                              Getters' definitions
 // ===========================================================================
-int MyString::length() const 
+int MyString::length(void) const 
 {
     return chars_length;
+}
+
+int MyString::capacity(void) const 
+{
+    return mem_length;
 }
 
 

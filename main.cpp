@@ -53,6 +53,7 @@ int main(int argc, char* argv[])
 
     // Accessors
     printf("s1 length: %d !\nmax s1 size: %f\n", s1.length(), s1.max_size());
+    printf("s1 capacity : %d\n",s1.capacity());
     printf("s1 size: %d\ns1 content: ",s1.size());
     for(i = 0; i < s1.size(); i++)
     {
@@ -61,6 +62,7 @@ int main(int argc, char* argv[])
     printf("\n\n");
 
     printf("s2 length: %d !\nmax s2 size: %f\n", s2->length(), s2->max_size());
+    printf("s2 capacity : %d\n",s2->capacity());
     printf("s2 size: %d\ns2 content: ",s2->size());
     for(i = 0; i < s2->size(); i++)
     {
@@ -69,6 +71,7 @@ int main(int argc, char* argv[])
     printf("\n\n");
 
     printf("s3 length: %d !\nmax s3 size: %f\n", s3->length(), s3->max_size());
+    printf("s3 capacity : %d\n",s3->capacity());
     printf("s3 size: %d\ns3 content: ",s3->size());
     for(i = 0; i < s3->size(); i++)
     {
@@ -88,6 +91,15 @@ int main(int argc, char* argv[])
     s1.resize(2);
     s2->resize(6, 'c');
     s3->resize(2,'c');
+    s4->resize(6);
+    printf("s4 capacity : %d\n",s4->capacity());
+    printf("s4 size: %d\ns4 content: ",s4->size());
+    for(i = 0; i < s4->length(); i++)
+    {
+        printf("%c", (s4->c_str())[i]);
+    }
+    printf("\n\n");
+    
     s4->clear();
 
     printf("s1 size: %d\ns1 content: ",s1.size());
@@ -97,6 +109,7 @@ int main(int argc, char* argv[])
     }
     printf("\n\n");
 
+    printf("s2 capacity : %d\n",s2->capacity());
     printf("s2 size: %d\ns2 content: ",s2->size());
     for(i = 0; i < s2->length(); i++)
     {
@@ -104,6 +117,7 @@ int main(int argc, char* argv[])
     }
     printf("\n\n");
 
+    printf("s3 capacity : %d\n",s3->capacity());
     printf("s3 size: %d\ns3 content: ",s3->size());
     for(i = 0; i < s3->length(); i++)
     {
@@ -111,6 +125,7 @@ int main(int argc, char* argv[])
     }
     printf("\n\n");
 
+    printf("s4 capacity : %d\n",s4->capacity());
     printf("s4 size: %d\ns4 content: ",s4->size());
     for(i = 0; i < s4->length(); i++)
     {
