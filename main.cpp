@@ -37,10 +37,89 @@
 // ===========================================================================
 int main(int argc, char* argv[])
 {
-
+	//for loops
     int i;
 
-	char* c_s1 = "Popopo";
+    // Default constructor
+    MyString s1;
+    MyString* s2 = new MyString();
+
+    // String constructor
+    char* c_str = "yoyo";
+    MyString* s3 = new MyString(c_str);	
+
+    // Copy constructor
+    MyString* s4 = new MyString(*s3);
+
+    // Accessors
+    printf("s1 length: %d !\nmax s1 size: %f\n", s1.length(), s1.max_size());
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.size(); i++)
+    {
+    	printf("%c", s1.at(i));
+    }
+    printf("\n\n");
+
+    printf("s2 length: %d !\nmax s2 size: %f\n", s2->length(), s2->max_size());
+    printf("s2 size: %d\ns2 content: ",s2->size());
+    for(i = 0; i < s2->size(); i++)
+    {
+    	printf("%c", s2->at(i));
+    }
+    printf("\n\n");
+
+    printf("s3 length: %d !\nmax s3 size: %f\n", s3->length(), s3->max_size());
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->size(); i++)
+    {
+    	printf("%c", s3->at(i));
+    }
+    printf("\n\n");
+
+    printf("s4 length: %d !\nmax s4 size: %f\n", s4->length(), s4->max_size());
+    printf("s4 size: %d\ns4 content: ",s4->size());
+    for(i = 0; i < s4->size(); i++)
+    {
+    	printf("%c", s4->at(i));
+    }
+    printf("\n\n"); 
+
+    // Resize, clear and c_str
+    s1.resize(2);
+    s2->resize(6, 'c');
+    s3->resize(2,'c');
+    s4->clear();
+
+    printf("s1 size: %d\ns1 content: ",s1.size());
+    for(i = 0; i < s1.length(); i++)
+    {
+    	printf("%c", (s1.c_str())[i]);
+    }
+    printf("\n\n");
+
+    printf("s2 size: %d\ns2 content: ",s2->size());
+    for(i = 0; i < s2->length(); i++)
+    {
+    	printf("%c", (s2->c_str())[i]);
+    }
+    printf("\n\n");
+
+    printf("s3 size: %d\ns3 content: ",s3->size());
+    for(i = 0; i < s3->length(); i++)
+    {
+    	printf("%c", (s3->c_str())[i]);
+    }
+    printf("\n\n");
+
+    printf("s4 size: %d\ns4 content: ",s4->size());
+    for(i = 0; i < s4->length(); i++)
+    {
+    	printf("%c", (s4->c_str())[i]);
+    }
+    printf("\n\n");
+
+    //old test
+	/*char* c_s1 = "Popopo";
 	MyString* s1 = new MyString(c_s1);               // calling constructor from a char*
 	MyString* s2 = new MyString("Pomegranates");     // calling constructor from a char*
 	MyString* s3 = new MyString(*s2);                // calling copy constructor
@@ -87,11 +166,11 @@ int main(int argc, char* argv[])
     // testing destructor
 	delete s3;
 
-
+	*/
     /*MyString* s4 = new MyString(c_s1);
     char charx = 'x';
     *s4 = (*s1) + charx;*/
-	MyString* s4 = new MyString((*s1) + 'x');       // testing operator + (char)
+	/*MyString* s4 = new MyString((*s1) + 'x');       // testing operator + (char)
 	printf("s4 length:%d !\n", s4->length());
 
 	printf("This is s4 : ");
@@ -128,7 +207,7 @@ int main(int argc, char* argv[])
     delete s4;
     delete s5;
 
- 	return 0;
+ 	return 0;*/
 }
 
 
