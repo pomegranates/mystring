@@ -193,7 +193,7 @@ const char* MyString::c_str (void) const
 
 void MyString::clear (void)
 {
-	delete chars;
+	delete [] chars;
 	mem_length = 0;
 	chars_length = 0;
 	chars = new char [0];
@@ -207,6 +207,8 @@ MyString& MyString::operator= (const MyString& model)
 
 	this->chars_length = model.chars_length;
 	this->mem_length = model.mem_length;
+	delete [] chars;
+	chars = new char [mem_length];
 	memcpy(this->chars, model.chars, model.mem_length*sizeof(char));
 	return *this;
 }
@@ -218,9 +220,11 @@ MyString& MyString::operator= (char c)
 
 	//Here the number of null character at the end of the c_string should be AT LEAST ONE
 	//(but could be more) to create an object MyString using the c_string-based constructor
-	return *(new MyString(temp_chars));
+	//return *(new MyString(temp_chars));
 	this->mem_length = 1;
     this->chars_length = 1;
+    delete [] chars;
+    chars = new char [1];
 	this->chars[0] = c;
 	return *this;
 }
